@@ -22,7 +22,6 @@ from langchain.schema import (
     SystemMessage
 )
 
-os.environ["OPENAI_API_KEY"] = "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"
 
 st.set_page_config(page_title='Mon prof particulier', layout="centered")
 
