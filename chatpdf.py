@@ -24,7 +24,7 @@ import PyPDF2
 from langchain.document_loaders import PyPDFLoader
 
 sys.modules['pypdf'] = PyPDF2
-
+PyPDF2.PdfReader = PyPDF2.PdfFileReader
 
 api_key = st.secrets["general"]["API_KEY"]
 
