@@ -1,3 +1,5 @@
+import os
+from langchain.llms import OpenAI
 from langchain.schema import (
     AIMessage,
     HumanMessage,
@@ -17,9 +19,11 @@ from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import tempfile
 import streamlit as st
+import sys
+import PyPDF2
 from langchain.document_loaders import PyPDFLoader
-from langchain.llms import OpenAI
-import os
+
+sys.modules['pypdf'] = PyPDF2
 
 
 api_key = st.secrets["general"]["API_KEY"]
