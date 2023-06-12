@@ -19,9 +19,10 @@ import tempfile
 import streamlit as st
 from langchain.document_loaders import PyPDFLoader
 from langchain.llms import OpenAI
+import os
 
 
-API_KEY = st.secrets["general"]["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"]
+api_key = st.secrets["general"]["API_KEY"]
 
 
 st.set_page_config(page_title='Mon prof particulier', layout="centered")
@@ -48,7 +49,8 @@ if uploaded_file is not None:
     os.remove(tmp_file_name)
 
     # Prepare chat model
-    chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+    chat = ChatOpenAI(model_name="gpt-3.5-turbo",
+                      temperature=0.7, openai_api_key=api_key)
 
     # Prepare text splitter and split documents
     text_splitter = RecursiveCharacterTextSplitter(
